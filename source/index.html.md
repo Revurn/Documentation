@@ -1,5 +1,5 @@
 ---
-title: API Reference
+title: Revurn Documentation
 
 language_tabs: # must be one of https://github.com/rouge-ruby/rouge/wiki/List-of-supported-languages-and-lexers
   - shell
@@ -19,7 +19,7 @@ code_clipboard: true
 
 meta:
   - name: description
-    content: Documentation for the Kittn API
+    content: Information on how you can interact with the Revurn API
 ---
 
 # Introduction
