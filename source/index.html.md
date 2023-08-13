@@ -38,6 +38,7 @@ const UserID = "REVURN_USER_ID";
 fetch(`https://revurn.com/api/v1/user/${userId}`, {
   method: 'GET',
   headers: {
+    'Authorization': 'YOUR_REVURN_TOKEN',
     'Content-Type': 'application/json',
   },
 })
