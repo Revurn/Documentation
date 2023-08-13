@@ -29,3 +29,28 @@ Welcome to the developer documentation for interacting with the Revurn API. This
 This part of the documentation will display how you can interact with Revurn's API
 
 ## User Details
+Returns details about a Revurn User
+
+```javascript
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+const UserID = "REVURN_USER_ID";
+
+fetch(`https://revurn.com/api/v1/user/${userId}`, {
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+})
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`Revurn Error, Status Code: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log(data);
+  })
+  .catch(error => {
+    console.error(error);
+  });
+```
