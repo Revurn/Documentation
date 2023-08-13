@@ -341,7 +341,30 @@
 <p>Welcome to the developer documentation for interacting with the Revurn API. This guide is designed to provide you with comprehensive insights into seamlessly integrating Revurn&#39;s powerful features into your applications. </p>
 <h1 id='revurn-api'>Revurn API</h1>
 <p>This part of the documentation will display how you can interact with Revurn&#39;s API</p>
-<h2 id='user-details'>User Details</h2><h1 id='errors'>Errors</h1>
+<h2 id='user-details'>User Details</h2>
+<p>Returns details about a Revurn User</p>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">fetch</span> <span class="o">=</span> <span class="p">(...</span><span class="nx">args</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">import</span><span class="p">(</span><span class="dl">'</span><span class="s1">node-fetch</span><span class="dl">'</span><span class="p">).</span><span class="nx">then</span><span class="p">(({</span><span class="na">default</span><span class="p">:</span> <span class="nx">fetch</span><span class="p">})</span> <span class="o">=&gt;</span> <span class="nx">fetch</span><span class="p">(...</span><span class="nx">args</span><span class="p">));</span>
+<span class="kd">const</span> <span class="nx">UserID</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">REVURN_USER_ID</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="nx">fetch</span><span class="p">(</span><span class="s2">`https://revurn.com/api/v1/user/</span><span class="p">${</span><span class="nx">userId</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span><span class="p">,</span>
+  <span class="p">},</span>
+<span class="p">})</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">response</span><span class="p">.</span><span class="nx">ok</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">`Revurn Error, Status Code: </span><span class="p">${</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+  <span class="p">})</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">data</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+  <span class="p">})</span>
+  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+  <span class="p">});</span>
+</code></pre></div><h1 id='errors'>Errors</h1>
 <p>The Revurn API has the following error codes.</p>
 
 <table><thead>
