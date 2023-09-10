@@ -55,3 +55,23 @@ fetch(`https://revurn.com/api/v1/user/${userId}`, {
     console.error(error);
   });
 ```
+
+```python
+import requests
+
+USER_ID = "REVURN_USER_ID"
+url = f'https://revurn.com/api/v1/user/{USER_ID}'
+headers = {
+    'Authorization': "YOUR_REVURN_TOKEN",
+    'Content-Type': 'application/json',
+}
+
+response = requests.get(url, headers=headers)
+
+if response.status_code == 200:
+    data = response.json()
+    print(data)
+else:
+    print(f"Revurn Error, Status Code: {response.status_code}")
+    print(response.text)
+```
