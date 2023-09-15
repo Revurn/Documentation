@@ -295,7 +295,7 @@
     </script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;shell&quot;,&quot;python&quot;,&quot;javascript&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -306,7 +306,6 @@
       <img src="images/logo-3f3a20ea.png" class="logo" alt="" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
               <a href="#" data-language-name="python">python</a>
               <a href="#" data-language-name="javascript">javascript</a>
         </div>
@@ -326,6 +325,14 @@
                   </li>
                   <li>
                     <a href="#guild-information" class="toc-h2 toc-link" data-title="Guild Information">Guild Information</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#revurn-js" class="toc-h1 toc-link" data-title="revurn.js">revurn.js</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#basic-setup" class="toc-h2 toc-link" data-title="Basic Setup">Basic Setup</a>
                   </li>
               </ul>
           </li>
@@ -426,6 +433,22 @@
 <span class="k">else</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Revurn Error, Status Code: </span><span class="si">{</span><span class="n">response</span><span class="p">.</span><span class="n">status_code</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
     <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div><h1 id='revurn-js'>revurn.js</h1>
+<p>This part of the documentation contains information about how to use the <code>revurn.js</code> NPM package</p>
+<h2 id='basic-setup'>Basic Setup</h2>
+<p>This is an extremely simple example of how you can get your Revurn Bot online with a simple <code>!ping</code> command, Feel free to use this example in your own setup.</p>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">revurn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">revurn.js</span><span class="dl">"</span><span class="p">)</span>
+
+<span class="nx">revurn</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">ready</span><span class="dl">'</span><span class="p">,</span> <span class="k">async</span><span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Bot is ready!</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">revurn</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">message</span><span class="dl">'</span><span class="p">,</span> <span class="k">async</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">messageContent</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">!ping</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">revurn</span><span class="p">.</span><span class="nx">sendMessage</span><span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">channel_id</span><span class="p">,</span> <span class="s2">`Pong!`</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+<span class="nx">revurn</span><span class="p">.</span><span class="nx">login</span><span class="p">(</span><span class="dl">"</span><span class="s2">YOUR_REVURN_BOT_TOKEN</span><span class="dl">"</span><span class="p">);</span>
 </code></pre></div><h1 id='errors'>Errors</h1>
 <p>The Revurn API has the following error codes.</p>
 
@@ -481,7 +504,6 @@
       <div class="dark-box">
           <div class="lang-selector">
                 <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
                 <a href="#" data-language-name="python">python</a>
                 <a href="#" data-language-name="javascript">javascript</a>
           </div>
