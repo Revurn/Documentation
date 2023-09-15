@@ -103,3 +103,23 @@ fetch(`https://revurn.com/api/v1/guilds/${GuildID}`, {
     console.error(error);
   });
 ```
+
+```python
+import requests
+
+GUILD_ID = "REVURN_GUILD_ID"
+url = f'https://revurn.com/api/v1/guilds/{GUILD_ID}'
+headers = {
+    'Authorization': "YOUR_REVURN_TOKEN",
+    'Content-Type': 'application/json',
+}
+
+response = requests.get(url, headers=headers)
+
+if response.status_code == 200:
+    data = response.json()
+    print(data)
+else:
+    print(f"Revurn Error, Status Code: {response.status_code}")
+    print(response.text)
+```
