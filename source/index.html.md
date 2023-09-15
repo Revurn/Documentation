@@ -75,3 +75,31 @@ else:
     print(f"Revurn Error, Status Code: {response.status_code}")
     print(response.text)
 ```
+
+## Guild Information
+Returns details about a Revurn Guild
+
+```javascript
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+const GuildID = "REVURN_GUILD_ID";
+
+fetch(`https://revurn.com/api/v1/guilds/${GuildID}`, {
+  method: 'GET',
+  headers: {
+    'Authorization': 'YOUR_REVURN_TOKEN',
+    'Content-Type': 'application/json',
+  },
+})
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`Revurn Error, Status Code: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log(data);
+  })
+  .catch(error => {
+    console.error(error);
+  });
+```
