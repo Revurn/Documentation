@@ -3,7 +3,6 @@ title: Revurn Documentation
 
 language_tabs: # must be one of https://github.com/rouge-ruby/rouge/wiki/List-of-supported-languages-and-lexers
   - shell
-  - ruby
   - python
   - javascript
 
@@ -122,4 +121,25 @@ if response.status_code == 200:
 else:
     print(f"Revurn Error, Status Code: {response.status_code}")
     print(response.text)
+```
+
+# revurn.js
+This part of the documentation contains information about how to use the `revurn.js` NPM package
+
+## Basic Setup
+This is an extremely simple example of how you can get your Revurn Bot online with a simple `!ping` command, Feel free to use this example in your own setup.
+
+```javascript
+const revurn = require("revurn.js")
+
+revurn.on('ready', async() => {
+    console.log("Bot is ready!");
+});
+
+revurn.on('message', async(message) => {
+    if (message.messageContent === "!ping") {
+        revurn.sendMessage(message.channel_id, `Pong!`);
+    }
+});
+revurn.login("YOUR_REVURN_BOT_TOKEN");
 ```
